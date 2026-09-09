@@ -1,0 +1,12 @@
+{
+  "name": "blue-spring-live",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Blue Spring Live — manatee and park visit decision intelligence for Blue Spring State Park, Florida.",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "check": "node --check app.js && node --check api/live.js && node --check api/manatee.js",
+    "verify": "npm run check && npm test"
+  },
+  "engines": {"node": ">=20"}
+}
