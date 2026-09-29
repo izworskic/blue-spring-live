@@ -19,6 +19,24 @@ function parseCount(html) {
   return Number.isFinite(count) && count >= 0 && count < 2000 ? count : null;
 }
 
+function floridaSeason(date = new Date()) {
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/New_York',
+    year: 'numeric', month: 'numeric', day: 'numeric'
+  }).formatToParts(date);
+  const year = Number(parts.find(p => p.type === 'year')?.value);
+  const month = Number(parts.find(p => p.type === 'month')?.value);
+  const day = Number(parts.find(p => p.type === 'day')?.value);
+  const active = (month === 11 && day >= 15) || month === 12 || month <= 3;
+  const seasonYear = month <= 3 ? year - 1 : year;
+  return {
+    active,
+    label: active ? 'manatee-season' : 'off-season',
+    start: `${seasonYear}-11-15`,
+    end: `${seasonYear + 1}-03-31`
+  };
+}
+
 module.exports = async function handler(req, res) {
   try {
     const upstream = await fetch(SOURCE_URL, {
@@ -29,7 +47,9 @@ module.exports = async function handler(req, res) {
     });
     if (!upstream.ok) throw new Error(`upstream ${upstream.status}`);
     const html = await upstream.text();
-    const count = parseCount(html);
+    const publishedCount = parseCount(html);
+    const season = floridaSeason();
+    const count = season.active ? publishedCount : null;
     const lastModified = upstream.headers.get('last-modified');
     res.setHeader('Cache-Control', 'public, s-maxage=1800, stale-while-revalidate=3600');
     res.status(200).json({
@@ -39,23 +59,31 @@ module.exports = async function handler(req, res) {
       observedAt: null,
       sourceLastModified: lastModified,
       retrievedAt: new Date().toISOString(),
-      freshness: count == null ? 'unavailable' : 'published-undated',
-      note: count == null
-        ? 'No machine-readable count was found on the source page.'
-        : 'The source labels this field “Daily Manatee Count” but does not expose the observation date in a stable machine-readable field. Official monitoring documentation describes a typical 3–5 mornings-per-week count cadence. Treat this only as the latest published count, not a guaranteed same-day observation.'
+      season,
+      freshness: !season.active ? 'off-season' : count == null ? 'unavailable' : 'published-undated',
+      note: !season.active
+        ? 'Manatee refuge season is November 15 through March 31. The source can retain an undated count outside that window, so Blue Spring Live suppresses it rather than present a stale number as current.'
+        : count == null
+          ? 'No machine-readable count was found on the source page.'
+          : 'The source labels this field “Daily Manatee Count” but does not expose the observation date in a stable machine-readable field. Treat this only as the latest published in-season count, not a guaranteed same-day observation.'
     });
   } catch (error) {
+    const season = floridaSeason();
     res.status(200).json({
       count: null,
       source: 'Blue Spring Adventures',
       sourceUrl: SOURCE_URL,
       observedAt: null,
       retrievedAt: new Date().toISOString(),
-      freshness: 'unavailable',
-      note: 'The published count feed is temporarily unavailable.',
+      season,
+      freshness: season.active ? 'unavailable' : 'off-season',
+      note: season.active
+        ? 'The published count feed is temporarily unavailable.'
+        : 'Manatee refuge season is November 15 through March 31; no off-season count is presented.',
       error: String(error.message || error)
     });
   }
 };
 
 module.exports.parseCount = parseCount;
+module.exports.floridaSeason = floridaSeason;
