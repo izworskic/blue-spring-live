@@ -14,18 +14,3 @@ jobs:
         with:
           node-version: '20'
       - run: npm run verify
-      - name: Probe Save the Manatee report source
-        shell: bash
-        run: |
-          node --input-type=module <<'NODE'
-          const url='https://savethemanatee.org/bssp-manatee-reports/';
-          const r=await fetch(url,{headers:{'user-agent':'Mozilla/5.0 (compatible; BlueSpringLiveSourceCheck/1.0)','accept':'text/html,application/xhtml+xml'}});
-          const html=await r.text();
-          console.log('SMC status',r.status,'bytes',html.length);
-          const text=html.replace(/<script[\s\S]*?<\/script>/gi,' ').replace(/<style[\s\S]*?<\/style>/gi,' ').replace(/<[^>]+>/g,' ').replace(/&nbsp;|&#160;/gi,' ').replace(/&amp;/gi,'&').replace(/&#8217;|&rsquo;/gi,"'").replace(/\s+/g,' ').trim();
-          for (const needle of ['March 26','manatee','71.2']) {
-            const i=text.toLowerCase().indexOf(needle.toLowerCase());
-            console.log('\nNEEDLE',needle,'INDEX',i);
-            if(i>=0) console.log(text.slice(Math.max(0,i-500),i+2200));
-          }
-          NODE
