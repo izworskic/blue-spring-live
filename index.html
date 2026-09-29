@@ -177,7 +177,7 @@
           <article><b>USGS Water Data</b><p>Blue Spring station 02235500 and St. Johns River near DeLand 02236000 provide current water temperature and flow through the modern OGC API. SJRWMD monitoring documentation references Sanford station 02234500 as a research proxy, but USGS no longer publishes current water temperature at that station; DeLand is therefore used here as a transparent operational proxy.</p><a target="_blank" rel="noopener" href="https://api.waterdata.usgs.gov/">Open USGS API ↗</a></article>
           <article><b>National Weather Service</b><p>Hourly temperature, precipitation and wind forecasts drive visitor comfort and cold-front timing.</p><a target="_blank" rel="noopener" href="https://www.weather.gov/">Open NWS ↗</a></article>
           <article><b>Florida State Parks</b><p>Hours, seasonal water-activity rules, reservation requirements and visitor information come from the park.</p><a target="_blank" rel="noopener" href="https://www.floridastateparks.org/parks-and-trails/blue-spring-state-park">Open park page ↗</a></article>
-          <article><b>Manatee observations</b><p>The latest published count is retrieved from Blue Spring Adventures when available. Its page labels the field “Daily Manatee Count,” but the underlying observation date is not exposed in a stable machine-readable field. The app therefore treats the count as a published observation, never as a guaranteed same-day census.</p><a target="_blank" rel="noopener" href="https://bluespringadventures.com/home/">Open source ↗</a></article>
+          <article><b>Manatee observations</b><p>Save the Manatee Club publishes dated Blue Spring morning roll calls during manatee season. Blue Spring Live parses the report date, count and reported river temperature, then keeps that observation separate from live USGS water measurements. Blue Spring Adventures is fallback only if the dated report source is unavailable.</p><a target="_blank" rel="noopener" href="https://savethemanatee.org/bssp-manatee-reports/">Open dated reports ↗</a></article>
         </div>
         <div class="method-note"><b>Forecast status:</b> The current release uses an interpretable ecological opportunity model based on river/spring thermal conditions and NWS forecasts. It does not present an exact predicted manatee count. The “best morning” labels rank visit conditions; they are not probabilities of seeing animals.</div>
       </div>
@@ -195,5 +195,6 @@
   <footer><div class="wrap footer-inner"><div><b>BLUE SPRING LIVE</b><span>An independent visitor decision tool.</span></div><div><a href="https://chrisizworski.com">chrisizworski.com</a><span>Data remain subject to source revision and park conditions.</span></div></div></footer>
   <script src="app.js" defer></script>
   <script src="benchmark-upgrade.js" defer></script>
+  <script src="dated-source-upgrade.js" defer></script>
 </body>
 </html>
