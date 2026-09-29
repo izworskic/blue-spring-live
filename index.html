@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title>Blue Spring Live | Manatee Count, Water Temperature & Best Time to Visit</title>
-  <meta name="description" content="Blue Spring Live combines manatee observations, USGS spring and St. Johns River temperatures, NWS forecasts, reservations and park logistics to help you decide when to visit Blue Spring State Park." />
+  <title>Blue Spring Manatees Today | Count & Conditions</title>
+  <meta name="description" content="Check Blue Spring State Park manatee conditions, the latest published count, live river and spring temperatures, webcam, cold signal and reservation info." />
   <meta name="theme-color" content="#062f37" />
-  <meta property="og:title" content="Blue Spring Live" />
-  <meta property="og:description" content="Manatee intelligence in winter. Blue Spring visit intelligence year-round." />
+  <meta property="og:title" content="Blue Spring Manatees Today | Count & Conditions" />
+  <meta property="og:description" content="Latest published manatee count, live thermal conditions, webcam and visit planning for Blue Spring State Park." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://commons.wikimedia.org/wiki/Special:Redirect/file/Manatees%20in%20Blue%20Spring%20State%20Park%20%288501212290%29.jpg?width=1600" />
   <link rel="preconnect" href="https://commons.wikimedia.org" />
@@ -16,10 +16,10 @@
   {
     "@context":"https://schema.org",
     "@type":"WebApplication",
-    "name":"Blue Spring Live",
+    "name":"Blue Spring Manatee Conditions",
     "applicationCategory":"TravelApplication",
     "operatingSystem":"Web",
-    "description":"Decision intelligence for visiting Blue Spring State Park using live water, weather and manatee information.",
+    "description":"Decision support for visiting Blue Spring State Park using live water temperatures, weather, manatee observations, webcam context and park access information.",
     "about":{"@type":"TouristAttraction","name":"Blue Spring State Park","address":{"@type":"PostalAddress","streetAddress":"2100 W French Ave","addressLocality":"Orange City","addressRegion":"FL","postalCode":"32763","addressCountry":"US"}}
   }
   </script>
@@ -27,11 +27,11 @@
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:url" content="https://chrisizworski.com/national-tools/blue-spring-live/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Blue Spring Live">
-<meta name="twitter:description" content="Manatee intelligence in winter. Blue Spring visit intelligence year-round.">
+<meta name="twitter:title" content="Blue Spring Manatees Today">
+<meta name="twitter:description" content="Latest published count, live thermal conditions, webcam and visit planning for Blue Spring State Park.">
 <meta name="twitter:image" content="https://commons.wikimedia.org/wiki/Special:Redirect/file/Manatees%20in%20Blue%20Spring%20State%20Park%20%288501212290%29.jpg?width=1600">
-<meta property="og:image:alt" content="Blue Spring Live">
-<meta name="twitter:image:alt" content="Blue Spring Live">
+<meta property="og:image:alt" content="Manatees gathered in Blue Spring State Park">
+<meta name="twitter:image:alt" content="Manatees gathered in Blue Spring State Park">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -48,15 +48,15 @@
         <div class="eyebrow"><span class="live-dot"></span><span id="seasonLabel">BLUE SPRING LIVE</span><span class="source-status" id="heroFreshness">Loading live conditions…</span></div>
         <div class="hero-grid">
           <div>
-            <h1 id="heroTitle">Is today the right day for Blue Spring?</h1>
-            <p class="hero-sub" id="heroReason">Combining spring water, St. Johns River conditions, weather and park access.</p>
+            <h1 id="heroTitle">Are manatees at Blue Spring today?</h1>
+            <p class="hero-sub" id="heroReason">Combining the latest published manatee count with measured St. Johns River and Blue Spring temperatures, weather and park access.</p>
             <div class="decision-row">
               <div class="decision-badge" id="decisionBadge">LOADING</div>
-              <div><div class="decision-label" id="decisionLabel">TODAY'S VISIT OUTLOOK</div><div class="confidence" id="confidenceLabel">Confidence: —</div></div>
+              <div><div class="decision-label" id="decisionLabel">MANATEE REFUGE SIGNAL</div><div class="confidence" id="confidenceLabel">Confidence: —</div></div>
             </div>
             <div class="cta-row">
-              <a class="btn primary" href="#plan">Plan my visit</a>
-              <a class="btn glass" target="_blank" rel="noopener" href="https://www.floridastateparks.org/parks-and-trails/blue-spring-state-park">Official park page</a>
+              <a class="btn primary" target="_blank" rel="noopener" href="https://reserve.floridastateparks.org/">Check day-use reservation</a>
+              <a class="btn glass" target="_blank" rel="noopener" href="https://www.floridastateparks.org/learn/webcam-watch-manatees-blue-spring">Open live manatee cam</a>
             </div>
           </div>
           <aside class="hero-panel" aria-label="Live condition summary">
@@ -78,7 +78,7 @@
 
     <section class="live-strip" aria-label="Live conditions">
       <div class="wrap strip-grid">
-        <div><span>MANATEE FEED</span><strong id="stripManatees">Seasonal</strong><small id="manateeFreshness">Latest published count</small></div>
+        <div><span>MANATEE STATUS</span><strong id="stripManatees">Seasonal</strong><small id="manateeFreshness">Latest published count</small></div>
         <div><span>RIVER</span><strong id="stripRiver">—</strong><small id="stripRiverTrend">USGS</small></div>
         <div><span>SPRING</span><strong id="stripSpring">—</strong><small>USGS 02235500</small></div>
         <div><span>REFUGE Δ</span><strong id="stripDelta">—</strong><small>Spring − river</small></div>
@@ -166,7 +166,7 @@
       <div class="section-head"><div><p class="kicker">LOOK BEFORE YOU DRIVE</p><h2>Blue Spring manatee camera</h2></div><p>Use the live camera as visual context. Camera availability and exact framing can change.</p></div>
       <div class="webcam-card">
         <div class="webcam-art"><div class="cam-ring">LIVE</div><div class="cam-copy"><b>Manatee Cam</b><span>Save the Manatee Club / Blue Spring</span></div></div>
-        <div><p>During winter, the camera can provide a direct look at activity in the spring run. Outside peak season, footage may be less manatee-focused.</p><a class="btn primary" target="_blank" rel="noopener" href="https://explore.org/livecams/manatees/blue-spring-state-park-manatee-cam">Open live camera</a></div>
+        <div><p>During winter, the camera can provide a direct look at activity in the spring run. Outside peak season, footage may be less manatee-focused.</p><a class="btn primary" target="_blank" rel="noopener" href="https://www.floridastateparks.org/learn/webcam-watch-manatees-blue-spring">Open official webcam</a></div>
       </div>
     </section>
 
@@ -177,22 +177,23 @@
           <article><b>USGS Water Data</b><p>Blue Spring station 02235500 and St. Johns River near DeLand 02236000 provide current water temperature and flow through the modern OGC API. SJRWMD monitoring documentation references Sanford station 02234500 as a research proxy, but USGS no longer publishes current water temperature at that station; DeLand is therefore used here as a transparent operational proxy.</p><a target="_blank" rel="noopener" href="https://api.waterdata.usgs.gov/">Open USGS API ↗</a></article>
           <article><b>National Weather Service</b><p>Hourly temperature, precipitation and wind forecasts drive visitor comfort and cold-front timing.</p><a target="_blank" rel="noopener" href="https://www.weather.gov/">Open NWS ↗</a></article>
           <article><b>Florida State Parks</b><p>Hours, seasonal water-activity rules, reservation requirements and visitor information come from the park.</p><a target="_blank" rel="noopener" href="https://www.floridastateparks.org/parks-and-trails/blue-spring-state-park">Open park page ↗</a></article>
-          <article><b>Manatee observations</b><p>The latest published count is retrieved from Blue Spring Adventures when available. Its page labels the field “Daily Manatee Count,” but the underlying observation date is not exposed in a stable machine-readable field and official monitoring cadence is typically 3–5 mornings per week. The app labels the number conservatively.</p><a target="_blank" rel="noopener" href="https://bluespringadventures.com/home/">Open source ↗</a></article>
+          <article><b>Manatee observations</b><p>The latest published count is retrieved from Blue Spring Adventures when available. Its page labels the field “Daily Manatee Count,” but the underlying observation date is not exposed in a stable machine-readable field. The app therefore treats the count as a published observation, never as a guaranteed same-day census.</p><a target="_blank" rel="noopener" href="https://bluespringadventures.com/home/">Open source ↗</a></article>
         </div>
-        <div class="method-note"><b>Forecast status:</b> The current release uses an interpretable ecological opportunity model based on river/spring thermal conditions and NWS forecasts. It intentionally does not present an exact predicted manatee count until a sufficiently consistent daily historical count series is available for backtesting. The displayed “best morning” ranking is a visit-opportunity ranking, not a census forecast.</div>
+        <div class="method-note"><b>Forecast status:</b> The current release uses an interpretable ecological opportunity model based on river/spring thermal conditions and NWS forecasts. It does not present an exact predicted manatee count. The “best morning” labels rank visit conditions; they are not probabilities of seeing animals.</div>
       </div>
     </section>
 
     <section class="faq section wrap">
       <div class="section-head"><div><p class="kicker">QUICK ANSWERS</p><h2>Blue Spring visit questions</h2></div></div>
-      <details><summary>When is the best time to see manatees at Blue Spring?</summary><p>Manatee season is November 15 through March 31. Cold mornings after the St. Johns River cools are generally the strongest viewing situations. This tool ranks upcoming mornings using live thermal conditions and the forecast.</p></details>
+      <details><summary>When is the best time to see manatees at Blue Spring?</summary><p>Manatee season is November 15 through March 31. Cold mornings after the St. Johns River cools are generally the strongest viewing situations. This tool ranks upcoming mornings using measured thermal conditions and the forecast.</p></details>
       <details><summary>Do I need a reservation for Blue Spring State Park?</summary><p>Yes. Day-use reservations are required. Confirm availability in the official Florida State Parks reservation system before you travel.</p></details>
-      <details><summary>Can I swim at Blue Spring during manatee season?</summary><p>No. Water activities in the spring run are prohibited during manatee season. Swimming season is generally April 1 through November 14, subject to wildlife and park conditions.</p></details>
+      <details><summary>Can I swim at Blue Spring during manatee season?</summary><p>No. Water activities in the spring run are prohibited during manatee season. Swimming season is April 1 through November 14, subject to wildlife and park conditions.</p></details>
       <details><summary>What temperature attracts manatees to Blue Spring?</summary><p>Manatees are vulnerable to prolonged cold exposure and rely on warm-water refuges when surrounding water gets cold. The tool tracks the St. Johns River relative to roughly 68°F and the temperature advantage of Blue Spring, but does not treat one exact temperature as an on/off switch.</p></details>
     </section>
   </main>
 
-  <footer><div class="wrap footer-inner"><div><b>BLUE SPRING LIVE</b><span>A destination intelligence tool.</span></div><div><a href="https://chrisizworski.com">chrisizworski.com</a><span>Data remain subject to source revision and park conditions.</span></div></div></footer>
+  <footer><div class="wrap footer-inner"><div><b>BLUE SPRING LIVE</b><span>An independent visitor decision tool.</span></div><div><a href="https://chrisizworski.com">chrisizworski.com</a><span>Data remain subject to source revision and park conditions.</span></div></div></footer>
   <script src="app.js" defer></script>
+  <script src="benchmark-upgrade.js" defer></script>
 </body>
 </html>
